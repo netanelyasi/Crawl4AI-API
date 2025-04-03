@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: crawl4ai-api
+    env: docker
+    plan: standard
+    region: oregon  # או בחר אזור אחר
+    branch: main
+    numInstances: 1
+    healthCheckPath: /api/health
+    envVars:
+      - key: API_KEY
+        generateValue: true  # מייצר מפתח API אקראי
+      - key: PORT
+        value: 8000
